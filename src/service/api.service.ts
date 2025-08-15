@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://swapi.info/api",
+  baseURL: process.env.NEXT_PUBLIC_STARWARS_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
-  timeout: 10000, 
+  timeout: 10000,
 });
 
 api.interceptors.response.use(

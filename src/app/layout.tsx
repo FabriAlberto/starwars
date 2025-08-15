@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ThemeToggle from "../components/ThemeToggle";
 import Image from "next/image";
 
 const inter = Inter({
@@ -21,8 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${inter.variable}`}>
-      <body className={` antialiased  bg-primary-dark px-5`}>
-        <ThemeToggle />
+      <body className={` antialiased  bg-primary-dark `}>
         <section className="w-full flex mt-2 justify-center">
           <Image src="starWarsIcon.svg" alt="Logo" width={100} height={100} />
         </section>
