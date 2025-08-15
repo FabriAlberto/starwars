@@ -4,14 +4,16 @@ import MovieInfo from "../../../components/movie/MovieInfo";
 import MoviePlanets from "../../../components/movie/MoviePlanets";
 import Link from "next/link";
 import ArrowBackIcon from "@/components/common/icons/ArrowBackIcon";
+import AlertError from "@/components/common/AlertError";
 
-export default async function MovieDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+type PageProps = {
+  params: Promise<{ id: string }>;
+};
+
+export default async function MovieDetailPage({ params }: PageProps) {
   try {
-    const movie = await starWarsApi.getMovieById(params.id);
+    const { id } = await params;
+    const movie = await starWarsApi.getMovieById(id);
 
     return (
       <div className="bg-primary-dark px-2 sm:px-[15px] md:px-[100px] lg:px-[150px] xl:px-[160px]">
@@ -39,13 +41,6 @@ export default async function MovieDetailPage({
       </div>
     );
   } catch (error) {
-    return (
-      <div className="min-h-screen bg-primary-dark flex items-center justify-center">
-        <div className="text-white text-center">
-          <h1 className="text-2xl font-bold mb-4">Error</h1>
-          <p>No se pudo cargar la película</p>
-        </div>
-      </div>
-    );
+    return <AlertError text=" No se pudo cargar la película." returnHome />;
   }
 }

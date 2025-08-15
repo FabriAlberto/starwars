@@ -9,7 +9,7 @@ interface MovieInfoProps {
 
 const MovieInfo: React.FC<MovieInfoProps> = ({ movie }) => {
   return (
-    <div className="space-y-6">
+    <section className="space-y-6">
       <h3 className="text-xl font-semibold text-white mb-4">Opening</h3>
       <div className="text-gray-300 text-sm leading-relaxed space-y-4 whitespace-pre-line">
         {movie.opening_crawl
@@ -40,7 +40,7 @@ const MovieInfo: React.FC<MovieInfoProps> = ({ movie }) => {
         </div>
       </div>
       <div className="w-full border-b border-[#28282A]" />
-    </div>
+    </section>
   );
 };
 

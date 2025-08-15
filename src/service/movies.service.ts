@@ -1,4 +1,4 @@
-import { Movie, MoviesResponse } from "@/types/movies";
+import { Movie, MoviesResponse, Planet } from "@/types/movies";
 import api from "./api.service";
 import axios from "axios";
 
@@ -12,13 +12,13 @@ export const starWarsApi = {
     const { data } = await api.get(`/films/${id}`);
     return data;
   },
-  async getPlanetsData(urls: string[]) {
+  async getPlanetsData(urls: string[]): Promise<Planet[]> {
     try {
-    const responses = await Promise.all(urls.map(url => axios.get(url)));
-    return responses.map(res => res.data);
-  } catch (error) {
-    console.error("Error al obtener planetas:", error);
-    throw error; 
-  }
+      const responses = await Promise.all(urls.map((url) => axios.get(url)));
+      return responses.map((res) => res.data);
+    } catch (error) {
+      console.error("Error al obtener planetas:", error);
+      throw error;
+    }
   },
 };
