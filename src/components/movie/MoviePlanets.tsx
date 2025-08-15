@@ -10,7 +10,7 @@ const MoviePlanets: React.FC<MoviePlanetsProps> = async ({ planetsUrl }) => {
   try {
     const planets = await starWarsApi.getPlanetsData(planetsUrl);
     return (
-      <section className="space-y-6 ml-3">
+      <section className="space-y-6 md:ml-0 md:ml-3">
         <h2 className="text-xl font-semibold text-white mb-6">Planets</h2>
         <div className="space-y-4">
           {planets.map((planet) => (

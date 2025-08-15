@@ -30,7 +30,7 @@ export default async function MovieDetailPage({ params }: PageProps) {
         </div>
 
         <div className="w-full flex flex-wrap">
-          <div className="w-full md:w-6/12 pe-3">
+          <div className="w-full md:w-6/12 pe-0 md:pe-3">
             <MovieInfo movie={movie} />
           </div>
 
