@@ -23,6 +23,19 @@ Este proyecto es una **prueba técnica** para el puesto de Desarrollador Fronten
 El proyecto está estructurado **por tipo y por feature**, lo que permite mantener el código ordenado y fácilmente escalable.  
 
 > 💡 Nota: En proyectos más grandes suelo utilizar **Screaming Architecture**, pero para esta prueba opté por esta estructura para optimizar tiempos y mantener claridad.
+## Generación de Páginas con Next.js (SSG + ISR)
+
+- **MovieDetailPage (`/movies/[id]`)**  
+  Las páginas de detalle de cada película se generan de forma estática en el build usando `generateStaticParams`.  
+  Para mantener los datos actualizados, se utiliza ISR (`revalidate = 86400`), lo que permite regenerar la página automáticamente cada 24 horas.
+
+- **Home (`/`)**  
+  La página principal que lista todas las películas también se genera estáticamente en el servidor y se actualiza automáticamente cada 24 horas usando ISR.
+
+**Ventajas:**
+- Rendimiento optimizado al servir páginas estáticas.
+- Contenido siempre relativamente actualizado sin necesidad de rebuild manual.
+- Mejor experiencia de usuario y SEO.
 
 
 ## 🎨 Estilos y configuración de Tailwind
