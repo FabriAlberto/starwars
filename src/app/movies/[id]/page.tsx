@@ -6,6 +6,15 @@ import Link from "next/link";
 import ArrowBackIcon from "@/components/common/icons/ArrowBackIcon";
 import AlertError from "@/components/common/AlertError";
 
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  const movies = await starWarsApi.getMovies();
+  return movies.map((m) => ({
+    id: m.url.split("/").filter(Boolean).pop() || "0",
+  }));
+}
+
 type PageProps = {
   params: Promise<{ id: string }>;
 };
