@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata = {
   title: "Star Wars App",
   description: "Prueba técnica Frontend",
+  icons: {
+    icon: '/starWarsIcon.svg',
+  },
 };
 
 export default function RootLayout({
